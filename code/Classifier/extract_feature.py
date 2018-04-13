@@ -31,6 +31,20 @@ def get_hist(vector, bin_number):
         print "bin_number error"
 
 
+def get_statistics(vector):
+    import numpy as np
+    a = np.array(vector)
+    a_max = np.max(a)
+    a_min = np.min(a)
+    a_std = np.std(a)
+    a_mean = np.mean(a)
+    a_median = np.median(a)
+    a_Q1 = np.percentile(a, 25)
+    a_Q3 = np.percentile(a, 75)
+    s_v = [a_max, a_min, a_std, a_mean, a_median, a_Q1, a_Q3]
+    return s_v
+
+
 def divide_vector_into_group(vector, group_size):
     """将一个向量(vector)划分成若干个大小相同的组(group)
         其中组数（group_number）已知，
@@ -53,19 +67,15 @@ def get_feature_from_matrix(data, group_size, bin_number):
         feature = list()
         divied_data = divide_vector_into_group(vector, group_size=group_size)
         for group in divied_data:
-            feature.append(get_hist(group, bin_number))
+            # feature.append(get_hist(group, bin_number)) #基于概率密度的特征
+            feature.append(get_statistics(group)) #基于统计量的特征
         return feature
 
     return map(get_feature_from_vector, list_util.transpose(data))  # 归一化矩阵的每一列
 
 
 if __name__ == '__main__':
-    pass
-    # import os
-    # import file_util
-    # ROOT_PATH = 'Data'
-    # GROUP_SIZE = settings.GROUP_SIZE
-    # BIN_NUMBER = settings.BIN_NUMBER
-    # params_list = settings.params_list
-    # generate_features("Data", "feature", params_list, group_size=GROUP_SIZE, bin_number=BIN_NUMBER)
-
+    v = [1, 2, 1, 3, 5, 12, 0]
+    get_statistics(v)
+    import sklearn
+    print sklearn.__version__

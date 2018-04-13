@@ -2,6 +2,7 @@
 import sys
 import os
 import file_util
+import settings
 
 
 #给样本添加标签,将添加完标签的数据写入文件中，形成feature
@@ -12,13 +13,15 @@ def combine_samples(filenames, keywords, feature_path):
     file_keywords = open(filepath,'w+')
     label = 0
     for file in filenames:
+        print "Using file:", file
         label = label + 1
         f = open(r"%s/%s" % (feature_path, file))
         for line in f.readlines():
             # text = line.split(',')
             text = line.split(',')[1:]
             file_keywords.writelines(r"%d,%s" %(label,",".join(text)))
-            # break
+        if label == settings.DEVICE_NUM:
+            break
         f.close()
     file_keywords.close()
 

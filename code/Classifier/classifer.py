@@ -7,7 +7,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn import metrics
 import numpy as np
 import os
-# import file_util
+
 
 def f_measure(testy, prdty):
     prediction = 0
@@ -47,10 +47,10 @@ def f_measure(testy, prdty):
 
 
 def svm_run(train_data,train_label,test_data,test_label):
-    clf = svm.LinearSVC(C=1,multi_class='ovr')
-    clf.fit(train_data,train_label)
-    # model = OneVsRestClassifier(svm.SVC(kernel='linear'))
-    # clf = model.fit(train_data, train_label)
+    # clf = svm.LinearSVC(C=1,multi_class='ovr')
+    # clf.fit(train_data,train_label)
+    model = OneVsRestClassifier(svm.SVC(kernel='linear'))
+    clf = model.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     Precision = metrics.accuracy_score(test_label,predictLabel)
     Recall = metrics.recall_score(test_label,predictLabel,average='macro')
