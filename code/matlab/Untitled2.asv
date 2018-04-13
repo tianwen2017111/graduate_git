@@ -1,0 +1,21 @@
+clear;clc;
+s = 'wz_iphone5_2';
+x = load('G:\graduate_git\Data\wz_iphone5_2.txt');
+d_x = load('G:\graduate_git\code\python\Classifier\denoised\wz_iphone5_2.txt');
+
+IAT = x(:,1);
+FS = x(:,2);
+TR = x(:,3);
+n = size(x,1);
+
+d_IAT = d_x(:,1);
+d_FS = d_x(:,2);
+d_TR = d_x(:,3);
+d_n = size(d_x,1);
+
+x1_indices = find(x1>0.005);
+x1(x1_indices) = [];
+% y = d_IAT(1:500);
+y = IAT;
+
+plot(1:500,y(501:1000),'b*')
