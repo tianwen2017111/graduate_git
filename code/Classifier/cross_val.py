@@ -61,6 +61,7 @@ def get_train_test_data(feature_path, keywords, cv=10):
         train_label = [label[i] for i in train_index]
         test_data = [data[i] for i in test_index]
         test_label = [label[i] for i in test_index]
+        break
     return train_data, train_label,test_data, test_label
 
 
