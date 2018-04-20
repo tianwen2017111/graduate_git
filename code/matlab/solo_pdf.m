@@ -1,11 +1,11 @@
 clear;clc;
-x = load('jzp_phone.txt');
+x = load('G:\graduate_git\code\Classifier\combine\frameSize.txt');
 
 % x1 = x(:,1); %IAT
 % x1_indices = find(x1>0.05);
 % x1(x1_indices) = [];
 
-x1 = x(:,2); %IAT
+% x1 = x(:,2); %IAT
 % x1_indices = find(x1>200);
 % x1(x1_indices) = [];
 
