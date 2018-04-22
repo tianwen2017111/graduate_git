@@ -1,26 +1,81 @@
 clear;clc;
-x = load('G:\graduate_git\code\Classifier\combine\frameSize.txt');
+data = load('jzp_phone.txt');
+x = data(:,3); %IAT
 
-% x1 = x(:,1); %IAT
-% x1_indices = find(x1>0.05);
-% x1(x1_indices) = [];
+%%
+%绘制transRate的过滤效果图
+% x1_indices = find(x>1400);
+% x(x1_indices) = [];
+subplot(1,2,1)
+plot(1:size(x,1),x,'*')
+axis([0 inf 0 inf])
+title('降噪前','FontSize',18)
+ylabel('transRate','FontSize',18);
 
-% x1 = x(:,2); %IAT
-% x1_indices = find(x1>200);
-% x1(x1_indices) = [];
+x1_indices = find(x>1.2*10^6);
+x(x1_indices) = [];
+subplot(1,2,2)
+plot(1:size(x,1),x,'*')
+axis([0 inf 0 15*10^8])
+title('降噪后','FontSize',18)
+ylabel('transRate','FontSize',18);
 
-% x1 = x(:,3); %transrite
-% x1_indices = find(x1>1.2*10^6);
-% x1(x1_indices) = [];
+%%
+% %绘制frameSize的过滤效果图
+% x1_indices = find(x>1400);
+% x(x1_indices) = [];
+% subplot(1,2,1)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1500])
+% title('降噪前','FontSize',18)
+% ylabel('frameSize','FontSize',18);
+% 
+% x1_indices = find(x>100);
+% x(x1_indices) = [];
+% subplot(1,2,2)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1500])
+% title('降噪后','FontSize',18)
+% ylabel('frameSize','FontSize',18);
+%%
+%绘制不同阈值的过滤效果图（IAT）
+% subplot(2,2,1)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1.6])
+% title('未过滤','FontSize',18)
+% ylabel('IAT','FontSize',18);
+% 
+% x1_indices = find(x>0.6);
+% x(x1_indices) = [];
+% subplot(2,2,2)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1.6])
+% title('threshold = 0.6','FontSize',18)
+% ylabel('IAT','FontSize',18);
 
+% x1_indices = find(x>0.4);
+% x(x1_indices) = [];
+% subplot(2,2,3)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1.6])
+% title('threshold = 0.4','FontSize',18)
+% ylabel('IAT','FontSize',18);
+% 
+% x1_indices = find(x>0.2);
+% x(x1_indices) = [];
+% subplot(2,2,4)
+% plot(1:size(x,1),x,'*')
+% axis([0 inf 0 1.6])
+% title('threshold = 0.2','FontSize',18)
+% ylabel('IAT','FontSize',18);
 
-[f1, x1i] = ksdensity(x1);
-% [f2, x2i] = ksdensity(x2);
-% [f3, x3i] = ksdensity(x3);
-% plot(x1i, f1,'r-*', x2i, f2, 'b-o', x3i,f3, 'g-v')
-plot(x1i, f1,'b-*')
-xlabel('IAT','FontSize',18);
-ylabel('probability density function','FontSize',18);
-% hleg = legend('cyf','jzp','wz');
-% set(hleg,'FontSize',18);
+%%
+%%-----绘制向量x的pdf曲线
+% [f, xi] = ksdensity(x);
+% plot(xi, f,'b-*')
+% title('threshold = 0.6','FontSize',18)
+% xlabel('IAT','FontSize',18);
+% ylabel('probability density function','FontSize',18);
+%%
+
 
