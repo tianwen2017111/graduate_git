@@ -52,35 +52,11 @@ def denoise(matrix, thresholds):
     return filter(fn, matrix)
 
 
-#画出数据的散点图
-def point_plot(vector):
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        raise ImportError('The program requires matplotlib')
-    # fig = plt.figure(0)
-    plt.scatter(range(0, len(vector)), vector)
-    # ax = fig.add_subplot
-    # ax.scatter(range(0,vector.len), vector)
-    plt.show()
 
-
-
-# if __name__ == '__main__':
-    # undenoised_dir_path = "Data"
-    # denoised_dir_path = "undenosied"
-    # params = ['IAT', 'frameSize', 'transRate']
-    # refactor_param("Data", params)
-    # print denoise(data, [100000,10000,100000])
-    # for root, _, files in os.walk(undenoised_dir_path):
-    #     for file in files:
-    #         source_file = root + '\\' + file
-    #         data = file_util.read_file(source_file)
-    #         print denoised_dir_path
-    #         divide_matrix_to_file(data, denoised_dir_path, file[:-4], params)
-            # denoised = denoise(data, [0.04, 100, 1.2 * 10 ** 6])
-            # divide_matrix_to_file(denoised, denoised_dir_path, file[:-4], params)
-
+if __name__ == '__main__':
+    import file_util
+    data = file_util.read_file('jzp_phone.txt')
+    denoised = denoise(data,)
 
 
 
