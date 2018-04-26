@@ -34,16 +34,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="extract_feature.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extract_feature.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scatter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scatter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scatter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="831">
@@ -66,6 +56,16 @@
               <folding>
                 <element signature="e#14#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://G:/git/mysite/draw/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -240,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.scatter">
+  <component name="RunManager" selected="Python.views">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -255,25 +255,6 @@
       <module name="Classifier" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="file_util" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="G:\Program Files\Python\Anaconda2\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Classifier" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_util.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -329,6 +310,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Classifier" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scatter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="G:/git/mysite/draw" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Classifier" />
+      <option name="SCRIPT_NAME" value="G:/git/mysite/draw/views.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -401,18 +400,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.file_util" />
-      <item index="2" class="java.lang.String" itemvalue="Python.cross_val" />
-      <item index="3" class="java.lang.String" itemvalue="Python.extract_feature" />
-      <item index="4" class="java.lang.String" itemvalue="Python.scatter" />
+      <item index="1" class="java.lang.String" itemvalue="Python.cross_val" />
+      <item index="2" class="java.lang.String" itemvalue="Python.extract_feature" />
+      <item index="3" class="java.lang.String" itemvalue="Python.scatter" />
+      <item index="4" class="java.lang.String" itemvalue="Python.views" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.scatter" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main" />
-        <item index="2" class="java.lang.String" itemvalue="Python.extract_feature" />
-        <item index="3" class="java.lang.String" itemvalue="Python.cross_val" />
-        <item index="4" class="java.lang.String" itemvalue="Python.file_util" />
+        <item index="0" class="java.lang.String" itemvalue="Python.views" />
+        <item index="1" class="java.lang.String" itemvalue="Python.scatter" />
+        <item index="2" class="java.lang.String" itemvalue="Python.main" />
+        <item index="3" class="java.lang.String" itemvalue="Python.extract_feature" />
+        <item index="4" class="java.lang.String" itemvalue="Python.cross_val" />
       </list>
     </recent_temporary>
   </component>
@@ -470,20 +469,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classifer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4368">
-          <caret line="100" column="59" lean-forward="false" selection-start-line="100" selection-start-column="59" selection-end-line="100" selection-end-column="59" />
-          <folding>
-            <element signature="e#15#38#0" expanded="true" />
-            <element signature="e#328#1196#0" expanded="false" />
-            <element signature="e#1794#2410#0" expanded="false" />
-            <element signature="e#2474#2928#0" expanded="false" />
-            <element signature="e#2994#3410#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1872">
@@ -722,6 +707,14 @@
           <folding>
             <element signature="e#14#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/git/mysite/draw/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
