@@ -1,7 +1,7 @@
 # encoding: utf-8
 import sys
 import list_util
-
+import numpy as np
 
 def get_hist(vector, bin_number):
     """
@@ -32,7 +32,7 @@ def get_hist(vector, bin_number):
 
 
 def get_statistics(vector):
-    import numpy as np
+
     a = np.array(vector)
     a_max = np.max(a)
     a_min = np.min(a)

@@ -1,0 +1,14 @@
+clear;clc;
+device_FS = load('feature\cyf_phone_frameSize.txt');
+device_IAT = load('feature\cyf_phone_IAT.txt');
+device_TR = load('feature\cyf_phone_transRate.txt');
+data = [device_FS device_IAT device_TR];
+
+fid = fopen('mix_feature\cyf_phone.txt', 'w');
+[col, row] = size(data);
+for i=1:col
+    for j = 1:row
+        fprintf(fid,'' data(i,j));
+    end
+end
+fclose(fid);

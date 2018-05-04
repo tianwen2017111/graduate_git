@@ -47,18 +47,20 @@ def f_measure(testy, prdty):
 
 
 def svm_run(train_data,train_label,test_data,test_label):
-    # clf = svm.LinearSVC(C=1,multi_class='ovr')
-    # clf.fit(train_data,train_label)
-    model = OneVsRestClassifier(svm.SVC(kernel='linear'))
-    clf = model.fit(train_data, train_label)
+    # clf = svm.LinearSVC(C=1, multi_class='ovo')
+    clf = svm.SVC(C=1, kernel='linear', gamma=20, decision_function_shape='ovo')
+    clf.fit(train_data,train_label)
+    # model = OneVsRestClassifier(svm.SVC(kernel='linear'))
+    # clf = model.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     Precision = metrics.accuracy_score(test_label,predictLabel)
     Recall = metrics.recall_score(test_label,predictLabel,average='macro')
     f = metrics.f1_score(test_label, predictLabel, average='macro')
     print 'SVM:',Precision,Recall,f
+    return Precision, Recall, f
 
 def rf_run(train_data,train_label,test_data,test_label):
-    clf = RandomForestClassifier(n_estimators=50, max_depth=None, min_samples_split=2, random_state=0)
+    clf = RandomForestClassifier(n_estimators=30, max_depth=None, min_samples_split=2, random_state=0)
     clf.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     # print('predictLabel:', predictLabel.tolist(), test_label)
@@ -68,9 +70,10 @@ def rf_run(train_data,train_label,test_data,test_label):
     Recall = metrics.recall_score(test_label, predictLabel, average='macro')
     f = metrics.f1_score(test_label, predictLabel, average='macro')
     print 'Random Forest:',Precision, Recall,f
+    return Precision, Recall, f
 
 def knn_run(train_data,train_label,test_data,test_label):
-    clf = KNeighborsClassifier(algorithm='kd_tree',n_neighbors=30)
+    clf = KNeighborsClassifier(algorithm='kd_tree', n_neighbors=20)
     clf.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     # print('predictLabel:', predictLabel.tolist(), test_label)
@@ -79,6 +82,7 @@ def knn_run(train_data,train_label,test_data,test_label):
     f = metrics.f1_score(test_label, predictLabel, average='macro')
 
     print 'kNN:',Precision, Recall, f
+    return Precision, Recall, f
 
 def bayes_run(train_data,train_label,test_data,test_label):
     clf = GaussianNB()
@@ -89,19 +93,14 @@ def bayes_run(train_data,train_label,test_data,test_label):
     Recall = metrics.recall_score(test_label, predictLabel, average='macro')
     f = metrics.f1_score(test_label, predictLabel, average='macro')
     print 'Naive Bayes:',Precision, Recall,f
+    return Precision, Recall, f
+
+# def ann_run(train_data,train_label,test_data,test_label):
+#     clf = neural_network
+
 
 if __name__ == '__main__':
     feature_path = "feature"
     keywords = "IAT"
-    filenames = file_util.find_filenames(feature_path, keywords)
-    file = file_util.combine_labels(filenames, keywords,feature_path)
-    data,label = loadDataSet(file)
-
-    train_data, train_label,test_data, test_label = get_data_for_cross_validation(data,label)
-    print len(train_data), len(test_data)
-    svm_run(train_data,train_label,test_data,test_label)
-    rf_run(train_data,train_label,test_data,test_label)
-    knn_run(train_data,train_label,test_data,test_label)
-    bayes_run(train_data,train_label,test_data,test_label)
 
 

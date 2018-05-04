@@ -1,9 +1,9 @@
 #coding:utf-8
 import sys
 import os
-import file_util
-import settings
-
+import file_util, settings
+import random
+from sklearn.model_selection import StratifiedKFold
 
 #给样本添加标签,将添加完标签的数据写入文件中，形成feature
 def combine_samples(filenames, keywords, feature_path):
@@ -42,27 +42,37 @@ def loadDataSet(trainFile):
             featureSample.append(float(dataSample[i]))
         dataMat.append(featureSample)
     fr.close()
+    data = list(zip(dataMat,labelMat))
+    random.shuffle(data)
+    dataMat[:], labelMat[:] = zip(*data)
     return dataMat,labelMat
 
 
 def get_train_test_data(feature_path, keywords, cv=10):
     # print "script: extract_feature.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
-    from sklearn.model_selection import StratifiedKFold
+
 
     filenames = file_util.find_filenames(feature_path, keywords)
-    file = combine_samples(filenames, keywords, feature_path)
+    print filenames
+    #随机生成DEVICE_NUM个随机数，取出相应的feature文件，file_No为文件序号
+    file_No = random.sample(range(0, len(filenames)), settings.DEVICE_NUM)
+    new_filenames = [filenames[i] for i in file_No]
+    print new_filenames
+    file = combine_samples(new_filenames, keywords, feature_path)
     data, label =loadDataSet(file)
     skf = StratifiedKFold(n_splits=cv, random_state=True)
-    # kf.get_n_splits(data)
     train_data = list()
     for train_index,test_index in skf.split(data, label):
-        # print "train_index: ", type(train_index), train_index
         train_data = [data[i] for i in train_index]
         train_label = [label[i] for i in train_index]
         test_data = [data[i] for i in test_index]
         test_label = [label[i] for i in test_index]
         break
-    return train_data, train_label,test_data, test_label
+    return train_data, train_label,test_data, test_label, new_filenames
+
+
+
+
 
 
 if __name__ == '__main__':

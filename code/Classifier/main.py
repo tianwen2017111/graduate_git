@@ -34,19 +34,33 @@ def invoke_classifers(train_data, train_label, test_data, test_label):
 if __name__ == '__main__':
     data_dir = settings.DATA_DIR
     feature_dir = settings.FEATURE_DIR
-    group_sizes = range(500, 550, 50)
+    group_sizes = range(300, 350, 50)
     bin_number = settings.BIN_NUMBER
     params_list = settings.params_list
     # deveice_number = 4
     print "device number: ", settings.DEVICE_NUM
-    for group_size in group_sizes:
-        print "group_size-----------",group_size
-        generate_features(data_dir, feature_dir, params_list, group_size, bin_number)
-        train_data, train_label, test_data, test_label = cross_val.get_train_test_data(feature_dir, "frameSize", cv=10)
-        # print max(train_label)
-        # file_util.write_file("combine/train_data.txt",train_data)
-        # file_util.write_file("combine/train_label.txt",train_label)
-        # file_util.write_file("combine/test_data.txt",test_data)
-        # file_util.write_file("combine/test_label.txt",test_label)
+    for i in range(100):
 
-        invoke_classifers(train_data, train_label, test_data, test_label)
+        # generate_features(data_dir, feature_dir, params_list, group_size, bin_number)
+        train_data, train_label, test_data, test_label, filenames = cross_val.get_train_test_data(feature_dir, keywords='IAT', cv=10)
+        # invoke_classifers(train_data, train_label, test_data, test_label)
+
+        svm_p, svm_r, svm_f = classifer.svm_run(train_data, train_label, test_data, test_label)
+        svm_file = open('svm_result.txt', 'a')
+        svm_file.write(str(svm_p) + ',' + str(svm_r) + ',' + str(svm_f) + '\n')
+        svm_file.close()
+
+        # rf_p, rf_r, rf_f = classifer.rf_run(train_data, train_label, test_data, test_label)
+        # rf_file = open('rf_result.txt', 'a')
+        # rf_file.write(str(rf_p) + ',' + str(rf_r) + ',' + str(rf_f) + '\n')
+        # rf_file.close()
+        #
+        # knn_p, knn_r, knn_f = classifer.knn_run(train_data, train_label, test_data, test_label)
+        # knn_file = open('knn_result.txt', 'a')
+        # knn_file.write(str(knn_p) + ',' + str(knn_r) + ',' + str(knn_f) + '\n')
+        # knn_file.close()
+        #
+        # bayes_p, bayes_r, bayes_f = classifer.bayes_run(train_data, train_label, test_data, test_label)
+        # bayes_file = open('bayes_result.txt', 'a')
+        # bayes_file.write(str(bayes_p) + ',' + str(bayes_r) + ',' + str(bayes_f) + '\n')
+        # bayes_file.close()
