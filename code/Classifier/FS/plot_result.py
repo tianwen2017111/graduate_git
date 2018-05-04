@@ -21,8 +21,17 @@ def plot_re(filename, threshold):
     plt.show()
 
 if __name__ == '__main__':
-    #IAT: rf_threshold:0.8, svm_rf_threshold:0.4, knn_rf_threshold:0.7, bayes_rf_threshold:0.7
+    #IAT: rf_threshold:0.8, svm_rf_threshold:0.8, knn_rf_threshold:0.8, bayes_rf_threshold:0.7
     #FS: rf_threshold:0.8, svm_rf_threshold:0.7, knn_rf_threshold:0.6, bayes_rf_threshold:0.7
     #TR: rf_threshold:0.8, svm_rf_threshold:0.8, knn_rf_threshold:0.6, bayes_rf_threshold:0.7
     #mix: rf_threshold:0.8, svm_rf_threshold:0.8, knn_rf_threshold:0.7, bayes_rf_threshold:0.8
-    plot_re('svm_result.txt', 0.7)
+    # plot_re('svm_result.txt', 0.7)
+
+
+    from sklearn import metrics
+    y_ture = [0, 1, 0, 0, 1, 0, 1, 1, 0]
+    y_pred = [0, 1, 0, 0, 1, 0, 0, 0, 0]
+    Precision = metrics.precision_score(y_ture, y_pred)
+    Recall = metrics.recall_score(y_ture, y_pred)
+    f = metrics.f1_score(y_ture, y_pred)
+    print Precision, Recall, f

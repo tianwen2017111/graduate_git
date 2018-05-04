@@ -53,7 +53,6 @@ def get_train_test_data(feature_path, keywords, cv=10):
 
 
     filenames = file_util.find_filenames(feature_path, keywords)
-    print filenames
     #随机生成DEVICE_NUM个随机数，取出相应的feature文件，file_No为文件序号
     file_No = random.sample(range(0, len(filenames)), settings.DEVICE_NUM)
     new_filenames = [filenames[i] for i in file_No]

@@ -53,9 +53,9 @@ def svm_run(train_data,train_label,test_data,test_label):
     # model = OneVsRestClassifier(svm.SVC(kernel='linear'))
     # clf = model.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
-    Precision = metrics.accuracy_score(test_label,predictLabel)
-    Recall = metrics.recall_score(test_label,predictLabel,average='macro')
-    f = metrics.f1_score(test_label, predictLabel, average='macro')
+    Precision = metrics.precision_score(test_label,predictLabel)
+    Recall = metrics.recall_score(test_label,predictLabel)
+    f = metrics.f1_score(test_label, predictLabel)
     print 'SVM:',Precision,Recall,f
     return Precision, Recall, f
 
@@ -66,9 +66,9 @@ def rf_run(train_data,train_label,test_data,test_label):
     # print('predictLabel:', predictLabel.tolist(), test_label)
     # file_util.write_file("predictLabel.txt", predictLabel)
     # file_util.write_file("test_label.txt", test_label)
-    Precision = metrics.accuracy_score(test_label, predictLabel)
-    Recall = metrics.recall_score(test_label, predictLabel, average='macro')
-    f = metrics.f1_score(test_label, predictLabel, average='macro')
+    Precision = metrics.precision_score(test_label, predictLabel)
+    Recall = metrics.recall_score(test_label, predictLabel)
+    f = metrics.f1_score(test_label, predictLabel)
     print 'Random Forest:',Precision, Recall,f
     return Precision, Recall, f
 
@@ -77,9 +77,9 @@ def knn_run(train_data,train_label,test_data,test_label):
     clf.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     # print('predictLabel:', predictLabel.tolist(), test_label)
-    Precision = metrics.accuracy_score(test_label, predictLabel)
-    Recall = metrics.recall_score(test_label, predictLabel, average='macro')
-    f = metrics.f1_score(test_label, predictLabel, average='macro')
+    Precision = metrics.precision_score(test_label, predictLabel)
+    Recall = metrics.recall_score(test_label, predictLabel)
+    f = metrics.f1_score(test_label, predictLabel)
 
     print 'kNN:',Precision, Recall, f
     return Precision, Recall, f
@@ -89,9 +89,9 @@ def bayes_run(train_data,train_label,test_data,test_label):
     clf.fit(train_data, train_label)
     predictLabel = clf.predict(test_data)
     # print('predictLabel:', predictLabel.tolist(), test_label)
-    Precision = metrics.accuracy_score(test_label, predictLabel)
-    Recall = metrics.recall_score(test_label, predictLabel, average='macro')
-    f = metrics.f1_score(test_label, predictLabel, average='macro')
+    Precision = metrics.precision_score(test_label, predictLabel)
+    Recall = metrics.recall_score(test_label, predictLabel)
+    f = metrics.f1_score(test_label, predictLabel)
     print 'Naive Bayes:',Precision, Recall,f
     return Precision, Recall, f
 
