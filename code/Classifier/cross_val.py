@@ -54,10 +54,11 @@ def get_train_test_data(feature_path, keywords, cv=10):
 
     filenames = file_util.find_filenames(feature_path, keywords)
     #随机生成DEVICE_NUM个随机数，取出相应的feature文件，file_No为文件序号
-    file_No = random.sample(range(0, len(filenames)), settings.DEVICE_NUM)
-    new_filenames = [filenames[i] for i in file_No]
-    print new_filenames
-    file = combine_samples(new_filenames, keywords, feature_path)
+    # file_No = random.sample(range(0, len(filenames)), settings.DEVICE_NUM)
+    # new_filenames = [filenames[i] for i in file_No]
+    # print new_filenames
+    print filenames
+    file = combine_samples(filenames, keywords, feature_path)
     data, label =loadDataSet(file)
     skf = StratifiedKFold(n_splits=cv, random_state=True)
     train_data = list()
@@ -67,7 +68,7 @@ def get_train_test_data(feature_path, keywords, cv=10):
         test_data = [data[i] for i in test_index]
         test_label = [label[i] for i in test_index]
         break
-    return train_data, train_label,test_data, test_label, new_filenames
+    return train_data, train_label,test_data, test_label
 
 
 
