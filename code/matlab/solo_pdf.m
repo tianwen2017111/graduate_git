@@ -8,8 +8,6 @@ x = data(:,3); %IAT
 
 %%
 % 绘制transRate的过滤效果图
-% x1_indices = find(x>1400);
-% x(x1_indices) = [];
 subplot(1,2,1)
 plot(1:size(x,1),x,'*')
 axis([0 inf 0 inf])
@@ -77,9 +75,8 @@ ylabel('TransRate','FontSize',10);
 %%-----绘制向量x的pdf曲线
 % [f, xi] = ksdensity(x);
 % plot(xi, f,'b-*')
-% title('threshold = 0.6','FontSize',18)
-% xlabel('IAT','FontSize',18);
-% ylabel('probability density function','FontSize',18);
+% xlabel('IAT','FontSize',12);
+% ylabel('probability density function','FontSize',12);
 %%
 
 
