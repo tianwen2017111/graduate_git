@@ -18,8 +18,8 @@ x3(x3_indices) = [];
 [f3, x3i] = ksdensity(x3);
 plot(x1i, f1,'r-*', x2i, f2, 'b-o', x3i,f3, 'g-v')
 % plot(x1i, f1,'b-*')
-xlabel('transRate','FontSize',18);
-ylabel('probability density function','FontSize',18);
-hleg = legend('device-1','device-2','device-3');
-set(hleg,'FontSize',18);
+xlabel('TransRate','FontSize',10);
+ylabel('Probability density function','FontSize',10);
+hleg = legend('Device-1','Device-2','Device-3');
+set(hleg,'FontSize',10);
 

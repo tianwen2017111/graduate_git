@@ -1,28 +1,28 @@
 clear;clc;
 data = load('jzp_phone.txt');
-x = data(:,1); %IAT
+x = data(:,3); %IAT
 
 %%
 %绘制散点图
-plot(1:size(x,1),x,'*m')
+% plot(1:size(x,1),x,'*m')
 
 %%
-%绘制transRate的过滤效果图
+% 绘制transRate的过滤效果图
 % x1_indices = find(x>1400);
 % x(x1_indices) = [];
-% subplot(1,2,1)
-% plot(1:size(x,1),x,'*')
-% axis([0 inf 0 inf])
-% title('降噪前','FontSize',18)
-% ylabel('transRate','FontSize',18);
-% 
-% x1_indices = find(x>1.2*10^6);
-% x(x1_indices) = [];
-% subplot(1,2,2)
-% plot(1:size(x,1),x,'*')
-% axis([0 inf 0 15*10^8])
-% title('降噪后','FontSize',18)
-% ylabel('transRate','FontSize',18);
+subplot(1,2,1)
+plot(1:size(x,1),x,'*')
+axis([0 inf 0 inf])
+title('降噪前','FontSize',10)
+ylabel('TransRate','FontSize',10);
+
+x1_indices = find(x>1.2*10^6);
+x(x1_indices) = [];
+subplot(1,2,2)
+plot(1:size(x,1),x,'*')
+axis([0 inf 0 15*10^8])
+title('降噪后','FontSize',10)
+ylabel('TransRate','FontSize',10);
 
 %%
 % %绘制frameSize的过滤效果图
@@ -31,16 +31,16 @@ plot(1:size(x,1),x,'*m')
 % subplot(1,2,1)
 % plot(1:size(x,1),x,'*')
 % axis([0 inf 0 1500])
-% title('降噪前','FontSize',18)
-% ylabel('frameSize','FontSize',18);
+% title('降噪前','FontSize',10)
+% ylabel('FrameSize','FontSize',10);
 % 
 % x1_indices = find(x>100);
 % x(x1_indices) = [];
 % subplot(1,2,2)
 % plot(1:size(x,1),x,'*')
 % axis([0 inf 0 1500])
-% title('降噪后','FontSize',18)
-% ylabel('frameSize','FontSize',18);
+% title('降噪后','FontSize',10)
+% ylabel('FrameSize','FontSize',10);
 %%
 %绘制不同阈值的过滤效果图（IAT）
 % subplot(2,2,1)
