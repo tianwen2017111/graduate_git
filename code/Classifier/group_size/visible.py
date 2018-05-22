@@ -19,13 +19,15 @@ if __name__ == '__main__':
 
     plt.figure(1)
 
-    plt.axis([50, 650, 0, 1.2])
+    plt.axis([50, 550, 0, 1.2])
     plt.plot(x, rf_F, marker='o', color='steelblue', label='RF')
     plt.plot(x, svm_F, marker='*', color='darkseagreen', label='SVM')
     plt.plot(x, knn_F, marker='^', color='orange', label='KNN')
     plt.plot(x, bayes_F, marker='v', color='lightcoral', label='NBC')
     # plt.legend(loc='upper center', ncol=4)
-    plt.legend()
-    plt.xlabel("group_size")
-    plt.ylabel("F1")
+    plt.tick_params(labelsize=18)
+    font = {'size':18}
+    plt.legend(prop=font, loc='lower right')
+    plt.xlabel("group_size",fontsize=18)
+    plt.ylabel("F1",fontsize=18)
     plt.show()

@@ -28,10 +28,11 @@ def generate_mix_features(source_dir_path, target_dir_path, params_list, group_s
         for file in files:
             data = file_util.read_file(source_dir_path + "\\" + file)
             # #---------------test function-------------------------
-            denoised_data = data_process.denoise(data, settings.THRESHOLDS)
+            # denoised_data = data_process.denoise(data, settings.THRESHOLDS)
 
             # file_util.write_file('denoised'+'\\'+file, denoised_data)
-            fp = extract_feature.get_feature_from_matrix(denoised_data, group_size, bin_number)
+            fp = extract_feature.get_feature_from_matrix(data, group_size, bin_number)
+            # fp = extract_feature.get_feature_from_matrix(denoised_data, group_size, bin_number)
             fp_dict = dict()
             for i, row in enumerate(fp):
                 row = data_process.normalize(row)#归一化
@@ -56,16 +57,16 @@ if __name__ == '__main__':
     data_dir = settings.DATA_DIR
     feature_dir = settings.FEATURE_DIR
     group_size = settings.GROUP_SIZE
-    bin_numbers = range(5, 16, 1)
+    bin_number = settings.BIN_NUMBER
     params_list = settings.params_list
     # deveice_number = 4
     print "device number: ", settings.DEVICE_NUM
 
 
-    for bin_number in bin_numbers:
+    for i in range(10):
 
         generate_mix_features(data_dir, feature_dir, params_list, group_size, bin_number)
-        train_data, train_label, test_data, test_label = cross_val.get_train_test_data(feature_dir, keywords='trans', cv=10)
+        train_data, train_label, test_data, test_label = cross_val.get_train_test_data(feature_dir, keywords='_', cv=10)
         # invoke_classifers(train_data, train_label, test_data, test_label)
 
         svm_p, svm_r, svm_f = classifer.svm_run(train_data, train_label, test_data, test_label)
